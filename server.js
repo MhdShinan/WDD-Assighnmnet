@@ -15,6 +15,8 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
     console.log(req.body);
 
+    require('dotenv').config();
+    
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         host:"smtp.gmail.com",
@@ -45,6 +47,6 @@ app.post('/', (req, res) => {
     });
 });
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log(`Server running on port ${port}`);
 });
